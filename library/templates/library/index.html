@@ -1,0 +1,23 @@
+{% extends "library/base.html" %}
+
+{% block pagetitle %}Welcome | {{ block.super }}{% endblock %}
+
+{% block headercontent %}
+    <div class="container">
+        <h1>Welcome to ReadBooks.</h1>
+        <h4>The online Personal Library. To keep track of your books and your readings.</h4>
+    </div>
+{% endblock %}
+
+{% block maincontent %}
+    <div class="col-md-12">
+        {% if all_books %}
+            {% for book in all_books %}
+                <img src="{{ book.cover.url }}" class="featured-book" width="150px" height="200px" alt="{{ book.title }}'s cover" title="{{ book.title }}">
+            {% endfor %}
+            <p></p>
+        {% else %}
+        <p>Sorry, no books available.</p>
+        {% endif %}
+    </div>
+{% endblock %}
